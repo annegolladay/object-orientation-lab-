@@ -318,18 +318,23 @@ class Vehicle {
     this.mileage = mileage
   }
   move(miles) {
+    // console.log(miles, typeof miles)
+    // console.log(this.mileage, typeof, this.mileage)
     this.mileage += miles
     console.log(this.mileage)
   }
 }
-
 
 /*
   Create a vehicle using your new class and save it to a variable called myFirstVehicle
 */
 
 //Code Here
-let myFirstVehicle = new Vehicle('rogue')
+const myFirstVehicle = new Vehicle(5, 'silver', 80000)
+
+console.log(myFirstVehicle)
+
+myFirstVehicle.move(1000)
 
 /* 
   Now we'll create a class that's based off of the vehicle class. 
@@ -387,11 +392,11 @@ console.log(myFirstMotorcycle.mileage)
 
 //Code Here
 class Boat extends Vehicle {
-  constructor(capacity, color, mileage, name, type) {
+  constructor(capacity, color, mileage, name, type, isSeaworthy) {
     super(capacity, color, mileage)
     this.name = name
     this.type = type
-    this.isSeaworthy = false
+    this.isSeaworthy = isSeaworthy
   }
   checkSeaworthiness() {
     if (this.isSeaworthy) {
@@ -405,6 +410,9 @@ class Boat extends Vehicle {
   }
 }
 
+//sidenote
+//falsy: 0, null, Nan, false, undefined, " "...only values that evaluate to false
+
 
 /*
   Create a new boat using your class. You can choose whatever values you like for all the 
@@ -412,7 +420,7 @@ class Boat extends Vehicle {
 */
 
 //Code Here
-let myFirstBoat = new Boat('big', 'yellow', 200, 'Dreamer', 'yacht', false)
+let myFirstBoat = new Boat(10, 'yellow', 2000, 'Dreamer', 'yacht', false)
 
 
 /*
